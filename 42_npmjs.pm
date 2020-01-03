@@ -922,6 +922,7 @@ sub ExecuteNpmCommand($) {
     $npm->{npminstall} =
         $cmdPrefix
       . 'echo n | sh -c "'
+      . $locale
       . $sudo
       . $locale
       . ' NODE_ENV=${NODE_ENV:-production} npm install '
@@ -931,6 +932,7 @@ sub ExecuteNpmCommand($) {
     $npm->{npmuninstall} =
         $cmdPrefix
       . 'echo n | sh -c "'
+      . $locale
       . $sudo
       . $locale
       . ' NODE_ENV=${NODE_ENV:-production} npm uninstall '
@@ -940,6 +942,7 @@ sub ExecuteNpmCommand($) {
     $npm->{npmupdate} =
         $cmdPrefix
       . 'echo n | sh -c "'
+      . $locale
       . $sudo
       . $locale
       . ' NODE_ENV=${NODE_ENV:-production} npm update '
@@ -960,6 +963,7 @@ sub ExecuteNpmCommand($) {
       . '--json --silent --depth=0 2>/dev/null); '
       . '[ "$L1" != "" ] && [ "$L1" != "\n" ] && echo ", \"listed\": $L1"; '
       . 'L2=$('
+      . $locale
       . $sudo
       . $locale
       . ' npm outdated '
@@ -1176,12 +1180,12 @@ sub RetrieveNpmOutput($$) {
                       . "were authorized to access remote host";
                     $h->{error}{detail} = "<pre>$o</pre>";
                 }
-                elsif ( $o =~ m/^sudo: /i ) {
+                elsif ( $o =~ m/(sudo: .+)/i ) {
                     $h->{error}{code} = "E403";
                     $h->{error}{summary} =
                       "Forbidden - " . "passwordless sudo permissions required";
                     $h->{error}{detail} =
-                        $o
+                        $1
                       . "<br /><br />"
                       . "You may add the following lines to /etc/sudoers.d/$runningUser:\n"
                       . "<pre>"
