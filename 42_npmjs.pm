@@ -1689,7 +1689,6 @@ sub ToDay() {
   </code><br>
   <br>
   This line may easily be added to a new file in /etc/sudoers.d/fhem and will automatically included to /etc/sudoers from there.<br>
-  Only checking for outdated packages does not require any privileged access at all!<br>
   <br>
   <br>
   <a name="npmjsdefine" id="npmjsdefine"></a><b>Define</b><br>
