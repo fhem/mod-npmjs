@@ -1872,7 +1872,7 @@ sub ToDay() {
       "abstract": "Modul zur Bedienung der Node.js Installation und Updates"
     }
   },
-  "version": "v1.1.3",
+  "version": "v1.1.4",
   "release_status": "stable",
   "author": [
     "Julian Pawlowski <julian.pawlowski@gmail.com>"
@@ -1937,6 +1937,8 @@ sub ToDay() {
       "requires": {
       },
       "recommends": {
+        "ALL=(ALL) NOPASSWD:SETENV: /usr/bin/npm outdated *": 0,
+        "ALL=(ALL) NOPASSWD:SETENV: /usr/local/bin/npm outdated *": 0,
         "ALL=(ALL) NOPASSWD:SETENV: /usr/bin/npm update *": 0,
         "ALL=(ALL) NOPASSWD:SETENV: /usr/local/bin/npm update *": 0,
         "ALL=(ALL) NOPASSWD:SETENV: /usr/bin/npm install *": 0,
