@@ -1,4 +1,4 @@
-# $Id: 42_npmjs.pm 19410 2019-05-19 15:12:53Z loredo $
+# $Id$
 
 package main;
 use strict;
