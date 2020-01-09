@@ -1871,7 +1871,7 @@ sub ToDay() {
       "abstract": "Modul zur Bedienung der Node.js Installation und Updates"
     }
   },
-  "version": "v1.1.4",
+  "version": "v1.1.5",
   "release_status": "stable",
   "author": [
     "Julian Pawlowski <julian.pawlowski@gmail.com>"
